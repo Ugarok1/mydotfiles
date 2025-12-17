@@ -11,3 +11,5 @@ alias grep='grep --color=auto'
 alias vim='nvim'
 PS1='[\u@\h \W]\$ '
 export YAD_OPTIONS
+export EDITOR=nvim
+export VISUAL=$EDITOR
