@@ -127,6 +127,7 @@ exec --no-startup-id ~/.config/i3/scripts/startautoapps.sh
 
 # assign calendar for floating
 for_window [class="Yad" title="yad-calendar"] floating enable
+for_window [class="yad-floating-cal"] floating enable, move position center
 
 # Enable smart gaps: no gaps when only one window
 smart_gaps on

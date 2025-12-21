@@ -1,6 +1,6 @@
 import subprocess
 
-blocks = ["calculator"]
+blocks = ["calculator", "calendar"]
 rofi_run = subprocess.run(
     ["rofi", "-dmenu", "-i", "-p", "Select Action:"],
     input="\n".join(blocks),
@@ -13,7 +13,5 @@ rofi_run_output = rofi_run.stdout.strip()
 
 if rofi_run_output == "calculator":
     subprocess.run("galculator", shell=True)
-if rofi_run_output == "test2":
-    subprocess.run(["echo", "test2"])
-if rofi_run_output == "test3":
-    subprocess.run(["echo", "test3"])
+if rofi_run_output == "calendar":
+    subprocess.run(["python3", "/home/myka/.config/UGmenu/popup-calendar.py"])
