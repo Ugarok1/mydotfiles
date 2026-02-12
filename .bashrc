@@ -13,3 +13,4 @@ PS1='[\u@\h \W]\$ '
 export YAD_OPTIONS
 export EDITOR=nvim
 export VISUAL=$EDITOR
+export PATH="$HOME/.local/bin:$PATH"

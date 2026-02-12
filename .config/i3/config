@@ -16,9 +16,15 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # volume binds
-bindsym F3 exec amixer -q set Master 5%+
-bindsym F2 exec amixer -q set Master 5%-
-bindsym F1 exec amixer -q set Master toggle
+bindsym F3 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym F2 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# F5: Decrease brightness and refresh bar
+bindsym F5 exec --no-startup-id brightnessctl s 5%- && polybar-msg action "#brightness.hook.0"
+
+# F6: Increase brightness and refresh bar
+bindsym F6 exec --no-startup-id brightnessctl s +5% && polybar-msg action "#brightness.hook.0"
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal ; exec --no-startup-id /home/myka/.config/i3/scripts/move-cursor-to-focused

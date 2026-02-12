@@ -1,8 +1,9 @@
 import subprocess
+import os
 
-blocks = ["calculator", "calendar"]
+blocks = ["calculator", "calendar", "wallpapers"]
 rofi_run = subprocess.run(
-    ["rofi", "-dmenu", "-i", "-p", "Select Action:"],
+    ["rofi", "-dmenu", "-i", "-p", "Select Action"],
     input="\n".join(blocks),
     text=True,
     capture_output=True,
@@ -15,3 +16,5 @@ if rofi_run_output == "calculator":
     subprocess.run("galculator", shell=True)
 if rofi_run_output == "calendar":
     subprocess.run(["python3", "/home/myka/.config/UGmenu/popup-calendar.py"])
+if rofi_run_output == "wallpapers":
+    os.system("feh --bg-fill --randomize ~/images/wallpapers/")
