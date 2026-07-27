@@ -1,0 +1,153 @@
+{ "spacing": 4, // Gaps between modules 
+    "modules-left": [
+        "niri/workspaces"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "mpd",
+        "custom/temperature_outside",
+        "bluetooth",
+        "network",
+        "memory",
+        "temperature",
+        "pulseaudio",
+        "backlight",
+        "group/hardware-bat",
+        "clock",
+    ],
+
+    // Modules configuration
+    
+    // Clock
+    "clock": {
+        "format": "<big>{:%Y-%m-%d %H:%M}</big>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>"
+    },
+
+    // Battery
+    "group/hardware-bat": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery#bat0",
+            "battery#bat1",
+            "battery#bat2"
+        ]
+    },
+
+    "battery#bat0": {
+        "bat": "BAT1",
+        "format": "{capacity}% +"
+    },
+
+    "battery#bat1": {
+        "bat": "BAT0",
+        "format": "{capacity}%"
+    },
+
+    "battery#bat2": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{time} {icon}",
+        "format-full": "{time} {icon}",
+        "format-charging": "{time} ",
+        "format-plugged": "{time} ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    // Light
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+
+    // Audio
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip": false
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "memory": {
+        "format": "{}% "
+    },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-disabled": "Disabled",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "custom/temperature_outside": {
+        "exec": "/home/myka/.config/waybar/scripts/temperature_outside.py",
+        "interval": 40,
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "bluetooth": {
+      "format": " {status}",
+      "format-disabled": "", 
+      "format-connected": " {device_alias}",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+}

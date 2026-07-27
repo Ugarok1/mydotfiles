@@ -1,0 +1,126 @@
+* {
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+@define-color default-bg #735200;
+@define-color default-text #fad067;
+@define-color alarm #6b0000;
+@define-color inactive #733900;
+
+
+window#waybar {
+  background-color: transparent;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.empty {
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+/* general settings */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#bluetooth,
+#custom-temperature_outside,
+#mpd {
+  padding: 0px 8px;
+  border-radius: 20px;
+  margin: 0px 2px;
+  background-color: @default-bg;
+  color: @default-text;
+}
+
+#battery.bat0 {
+  margin-right: 0px;
+  padding: 0 5px 0 10px;
+  border-radius: 10px 0 0 3px;
+  margin: 0px;
+}
+
+#battery.bat1 {
+  margin-left: 0px;
+  padding: 0 0px 0 0px;
+  border-radius: 0 0px 0px 0;
+  margin: 0px;
+}
+
+#battery.bat2 {
+  margin-right: 0px;
+  padding: 0 15px 0 4px;
+  border-radius: 0 3px 10px 0;
+  margin: 0px;
+}
+
+#custom-temperature_outside {
+  padding: 0 9px 0 9px;
+  border-radius: 1px 1px 12px 12px;
+}
+
+#workspaces button {
+  padding: 0 4px;
+  background-color: transparent;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: #cf7815;
+  border-radius: 40px;
+  border: 2px solid #9e5a0c;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: #074724;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#network.disconnected {
+  background-color: @alarm;
+}
+
+#network.disabled {
+  background-color: @inactive;
+}
+
+
+#pulseaudio.muted {
+  background-color: @inactive;
+}
+
+
+#temperature.critical {
+  background-color: @alarm;
+}
+
+
+#mpd.disconnected {
+  background-color: @alarm;
+}
+
+#mpd.stopped {
+  background-color: @inactive;
+}
+
+#mpd.paused {
+  background-color: @inactive;
+}
+
+
+#bluetooth.off {
+  background-color: @inactive;
+}
