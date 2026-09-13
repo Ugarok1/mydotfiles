@@ -96,7 +96,7 @@
     },
 
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon} - ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
