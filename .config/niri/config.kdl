@@ -37,6 +37,13 @@ input {
     }
 }
 
+// hot corner left top disable
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // display settings
 output "eDP-1" {
     mode "1920x1080@60.10"
@@ -51,7 +58,7 @@ layout {
     gaps 5
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 4
+        width 7
         inactive-color "#f7c84b"
         active-gradient from="#ffd978" to="#cd7818" angle=20
     }
@@ -90,6 +97,19 @@ window-rule {
 
 // binds 
 binds {
+    // Alt+F1 { spawn "wtype" "-k" "F1"; }
+    // Alt+F2 { spawn "wtype" "-k" "F2"; }
+    // Alt+F3 { spawn "wtype" "-k" "F3"; }
+    // Alt+F4 { spawn "wtype" "-k" "F4"; }
+    // Alt+F5 { spawn "wtype" "-k" "F5"; }
+    // Alt+F6 { spawn "wtype" "-k" "F6"; }
+    // Alt+F7 { spawn "wtype" "-k" "F7"; }
+    // Alt+F8 { spawn "wtype" "-k" "F8"; }
+    // Alt+F9 { spawn "wtype" "-k" "F9"; }
+    // Alt+F10 { spawn "wtype" "-k" "F10"; }
+    // Alt+F11 { spawn "wtype" "-k" "F11"; }
+    // Alt+F12 { spawn "wtype" "-k" "F12"; }
+
     // mpd commands; means music
     Mod+M  { spawn-sh "mpc toggle"; }
     Mod+Shift+M  { spawn-sh "mpc next"; }
